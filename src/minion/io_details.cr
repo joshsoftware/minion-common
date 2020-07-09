@@ -20,7 +20,7 @@ module Minion
       @read_message_size = true,
       @receive_size_buffer = Slice(UInt8).new(2),
       @send_size_buffer = Slice(UInt8).new(2),
-      @size_read = 0_u16,
+      @size_read = 0_u16
     )
     end
   end

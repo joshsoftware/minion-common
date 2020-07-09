@@ -21,7 +21,7 @@
 #  uuid.cr
 # The code uses a nonstandard UUID that encodes the nano-second precision time stamp
 # along with a six byte uniqifier.
- 
+
 module Minion::Common
   VERSION = "0.1.0"
 end
