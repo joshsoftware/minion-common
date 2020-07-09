@@ -1,6 +1,8 @@
 # This is the set of little libraries, structures, and utilities that are shared
 # between other parts of the Minion codebase.
 
+require "./minion/*"
+
 #  frame.cr
 # Encapsulated the data payload that Minion passes around.
 
@@ -23,5 +25,5 @@
 # along with a six byte uniqifier.
 
 module Minion::Common
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 end
