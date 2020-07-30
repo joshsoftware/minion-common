@@ -2,7 +2,6 @@ module Minion
   class ParseDate
     module Format
       class UsMil
-   
         # TODO: Add proper time zone support.
         FORMATS = [
           "%d %b %Y",
@@ -18,6 +17,7 @@ module Minion
           "%d%H%M%S%b%Y",
           "%d%H%M%S%B%Y",
         ]
+
         def self.parse(string, location : Time::Location? = Time::Location::UTC) : Time?
           dt : Time? = nil
           FORMATS.each do |format|

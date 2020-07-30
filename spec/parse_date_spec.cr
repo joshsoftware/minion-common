@@ -71,5 +71,4 @@ describe Minion::ParseDate do
     dt = Minion::ParseDate.parse("blahblah not a date")
     dt.should be_nil
   end
-
 end

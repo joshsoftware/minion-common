@@ -15,7 +15,7 @@ module Minion
       Time::Format::RFC_2822,
       Time::Format::RFC_3339,
       Time::Format::HTTP_DATE,
-      Minion::ParseDate::Format::UsMil
+      Minion::ParseDate::Format::UsMil,
     ]
 
     def self.parse(str, fallback = true) : Time?
@@ -26,10 +26,10 @@ module Minion
       dt : Time? = nil
       formats.each do |fmt|
         dt = if fmt.responds_to?(:parse?)
-                     fmt.parse?(str) rescue nil
-                   else
-                     fmt.parse(str) rescue nil
-                   end
+               fmt.parse?(str) rescue nil
+             else
+               fmt.parse(str) rescue nil
+             end
         break unless dt.nil?
       end
       if dt.nil? && fallback

@@ -57,7 +57,7 @@ describe Minion::Timer do
     3.times { num = wait.receive }
     timer.canceled?.should be_true
     timer.resume
-    3.times { num = wait.receive}
+    3.times { num = wait.receive }
     finish = Time.monotonic
     num.should eq(6)
     ((finish - start).to_f > 0.6).should be_true
