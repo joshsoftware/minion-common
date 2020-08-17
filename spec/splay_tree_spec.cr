@@ -1,9 +1,17 @@
 require "./spec_helper"
 
 describe Minion::SplayTreeMap do
-  it "Creates a Splay Tree with the specified typing" do
+  it "creates a Splay Tree with the specified typing" do
     st = Minion::SplayTreeMap(String, String).new
     st.class.should eq Minion::SplayTreeMap(String, String)
+  end
+
+  it "can create trees with complex keys" do
+    st = Minion::SplayTreeMap({String, String}, String).new
+    10.times {|n| st[{n.to_s, n.to_s}] = n.to_s}
+
+    st.size.should eq 10
+    st[{"5","5"}].should eq "5"
   end
 
   it "inserts 1000 randomly generated unique values and can look them up" do
