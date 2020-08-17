@@ -32,5 +32,5 @@ require "./minion/*"
 # do not have unbounded size limitations.
 
 module Minion::Common
-  VERSION = "0.1.5"
+  VERSION = "0.2.0
 end
