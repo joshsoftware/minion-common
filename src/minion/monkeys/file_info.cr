@@ -6,11 +6,18 @@
 struct Crystal::System::FileInfo
 
   def creation_time : ::Time
-    {% if flag?(:darwin) %}
+    {% if flag?(:win32) %}
+      Time.from_filetime(@file_attributes.ftCreationTime)
+    {% elsif flag?(:darwin) %}
       ::Time.new(@stat.st_ctimespec, ::Time::Location::UTC)
     {% else %}
       ::Time.new(@stat.st_ctim, ::Time::Location::UTC)
     {% end %}
+  end
+
+  def inode : UInt64
+    # Is there a Windows equivalent or will this just break on Windows?
+    @stat.st_ino
   end
 
   def raw
